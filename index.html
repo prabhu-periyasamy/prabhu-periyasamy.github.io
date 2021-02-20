@@ -17,9 +17,10 @@
   <input type="text" id="lname" name="lname" value="Doe"><br><br>
   <label for="email">Email:</label><br>
   <input type="text" id="email" name="email" value="aa@kk.com"><br><br>
-  <input type="submit" value="Submit">
+  <input type="submit" value="Submit" onsubmit="submitform()">
     </form> 
     <script>
+    function submitform(){
     var userValues = {
     "fname": document.getElementById("fname").value,
     "lname":" value_to_be_replaced",
@@ -27,6 +28,7 @@
     };
         alert("form submiited..." + userValues);
     window.FMApi = window.FMApi || []; window.FMApi.push("fm_form_tracking", "999D2561AB3C45DAAA4EE2DCB76E030F167E921E59A0668A4A3E87E24668233D4FEE9B6454ED3E4F9541AFFC909FC4567F2D781421634DE6655EB8150272DF91", userValues);
+    }
     </script>
 
 </body>
