@@ -1,39 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Github page </title>
-    <script> 
-        function createFcn(nm){(window.freshsales)[nm]=function(){(window.freshsales).push([nm].concat(Array.prototype.slice.call(arguments,0)))}; } (function(url,appToken,formCapture){window.freshsales=window.freshsales||[];if(window.freshsales.length==0){list='init identify trackPageView trackEvent set'.split(' ');for(var i=0;i<list.length;i++){var nm=list[i];createFcn(nm);}var t=document.createElement('script');t.async=1;t.src='https://ind-assets.freshsales.io/assets/analytics.js';var ft=document.getElementsByTagName('script')[0];ft.parentNode.insertBefore(t,ft);freshsales.init('https://prabhuperiyasamy20.myfreshworks.com/crm/sales','8f437a6a0b8d2b8bc0f38fe246a3ba3c31588a7358412b50f9299a1bd8f1f6a6',true);}})();
+    <script>
+        function createFcn(nm) { (window.freshsales)[nm] = function () { (window.freshsales).push([nm].concat(Array.prototype.slice.call(arguments, 0))) }; } (function (url, appToken, formCapture) { window.freshsales = window.freshsales || []; if (window.freshsales.length == 0) { list = 'init identify trackPageView trackEvent set'.split(' '); for (var i = 0; i < list.length; i++) { var nm = list[i]; createFcn(nm); } var t = document.createElement('script'); t.async = 1; t.src = 'https://ind-assets.freshsales.io/assets/analytics.js'; var ft = document.getElementsByTagName('script')[0]; ft.parentNode.insertBefore(t, ft); freshsales.init('https://prabhuperiyasamy20.myfreshworks.com/crm/sales', '8f437a6a0b8d2b8bc0f38fe246a3ba3c31588a7358412b50f9299a1bd8f1f6a6', true); } })();
     </script>
 </head>
+
 <body>
     Welcome to github pages ...
     <form onsubmit="submitform()">
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname" value="John"><br>
-  <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname" value="Doe"><br>
-  <label for="email">Email:</label><br>
-  <input type="text" id="email" name="email" value="aa@kk.com"><br>
-  <input type="text" id="lname" name="lname" value="Doe"><br>
-  <label for="dept">Department:</label><br>
-  <input type="text" id="dept" name="dept" value="IT"><br>
-  <label for="age">Age:</label><br>
-  <input type="number" id="age" name="age" value="20"><br>
-  <input type="submit" value="Submit">
-<!--     <script src='https://prabhuperiyasamy2-team.myfreshworks.com/crm/sales/web_forms/1a045178f6411de3bcf5581eb181fb89939e322443593aa55ab9da6c6ab5e110/form.js' crossorigin='anonymous' id='fs_1a045178f6411de3bcf5581eb181fb89939e322443593aa55ab9da6c6ab5e110'></script> -->
-    <script>
-    function submitform(){
-    var userValues = {
-    "fname": document.getElementById("fname").value,
-    "lname": document.getElementById("lname").value,
-    "email": document.getElementById("email").value
-    };
-    window.FMApi = window.FMApi || []; window.FMApi.push("fm_form_tracking", "D8EE6D4B3B14720D44A56D6C8868C1BDAD00C0DD9AD22907925129D858A5815E79145402A5A12272A6F5B38B4C4B3782C24B7FC9953FC3FF02AFE1DCBA78086F", userValues);
-    }
-    </script>
+
+        <!-- text -->
+        <label for="fname">First name:</label>
+        <input type="text" id="fname" name="fname" value="John"><br>
+
+        <label for="lname">Last name:</label>
+        <input type="text" id="lname" name="lname" value="Doe"><br>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" value="aa@kk.com"><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" value="20"><br>
+
+        <!-- number -->
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age"><br>
+
+        <!-- checkbox -->
+        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+        <label for="vehicle1"> </label><br>
+        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+        <label for="vehicle2"> I have a car</label><br>
+        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+        <label for="vehicle3"> I have a boat</label>
+
+        <!-- radio -->
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">Other</label><br>
+
+        <!-- date -->
+        <label for="birthday">Birthday:</label>
+        <input type="date" id="birthday" name="birthday"><br>
+
+        <!-- dropdown -->
+        <label for="dept">Choose a department:</label>
+        <select name="dept" id="dept">
+            <option value="IT">IT</option>
+            <option value="CSE">CSE</option>
+            <option value="ECE">ECE</option>
+            <option value="MECH">MECH</option>
+        </select>
+
+        <!-- multiselect dropdown -->
+        <label for="social">Choose your available social media:</label>
+        <select name="social" id="social" multiple>
+            <option value="facebook">Facebook</option>
+            <option value="twitter">Twitter</option>
+            <option value="whatsapp">Whatsapp</option>
+        </select>
+
+
+        <input type="submit" value="Submit">
+        <!--     <script src='https://prabhuperiyasamy2-team.myfreshworks.com/crm/sales/web_forms/1a045178f6411de3bcf5581eb181fb89939e322443593aa55ab9da6c6ab5e110/form.js' crossorigin='anonymous' id='fs_1a045178f6411de3bcf5581eb181fb89939e322443593aa55ab9da6c6ab5e110'></script> -->
+        <script>
+            function submitform() {
+                var userValues = {
+                    "fname": document.getElementById("fname").value,
+                    "lname": document.getElementById("lname").value,
+                    "email": document.getElementById("email").value
+                };
+                window.FMApi = window.FMApi || []; window.FMApi.push("fm_form_tracking", "D8EE6D4B3B14720D44A56D6C8868C1BDAD00C0DD9AD22907925129D858A5815E79145402A5A12272A6F5B38B4C4B3782C24B7FC9953FC3FF02AFE1DCBA78086F", userValues);
+            }
+        </script>
 
 </body>
+
 </html>
