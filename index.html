@@ -108,19 +108,20 @@
         <!--     <script src='https://prabhuperiyasamy2-team.myfreshworks.com/crm/sales/web_forms/1a045178f6411de3bcf5581eb181fb89939e322443593aa55ab9da6c6ab5e110/form.js' crossorigin='anonymous' id='fs_1a045178f6411de3bcf5581eb181fb89939e322443593aa55ab9da6c6ab5e110'></script> -->
         <script>
             function submitform() {             
-                var userValues = {
+//                 var userValues = {
+//                     "fname": document.getElementById("fname").value,
+//                     "lname": document.getElementById("lname").value,
+//                     "email": document.getElementById("email").value
+//                 };
+               var userValues = {
+                    "birthday":document.getElementById("birthday").value,
                     "fname": document.getElementById("fname").value,
                     "lname": document.getElementById("lname").value,
-                    "email": document.getElementById("email").value
-                };
-                                var userValues = {
-                "birthday":document.getElementById("birthday").value,
-                "fname": document.getElementById("fname").value,
-                "lname": document.getElementById("lname").value,
-                "nation":document.getElementById("nation").value,
-                "dept":document.getElementById("dept").value,
-                "email": document.getElementById("email").value,
-                "age":document.getElementById("age").value};
+                    "nation":document.getElementById("nation").value,
+                    "dept":document.getElementById("dept").value,
+                    "email": document.getElementById("email").value,
+                    "age":document.getElementById("age").value
+               };
             window.FMApi = window.FMApi || []; window.FMApi.push("fm_form_tracking", "28588E7A18379589B08333806E58C80CDD2CB08A3C8E4F1B903B91F40F81F79A30D8B88F0E970006CD48A7EF7DD1CA07DCC659C079E601757743A1698D4CD96B", userValues);                
                 
                 
