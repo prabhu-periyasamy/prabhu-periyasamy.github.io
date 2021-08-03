@@ -50,11 +50,11 @@
     <form onsubmit="submitform()" name="prab-form" id ="form-1">
 
         <!-- text -->
-        <label for="fname">First name:</label><br>
-        <input type="text" id="fname" name="fname" value="John"><br><br>
+        <label for="first_name">First name:</label><br>
+        <input type="text" id="first_name" name="first_name" value="John"><br><br>
 
-        <label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="lname" value="Doe"><br><br>
+        <label for="last_name">Last name:</label><br>
+        <input type="text" id="last_name" name="last_name" value="Doe"><br><br>
 
         <label for="email">Email:</label><br>
         <input type="text" id="email" name="email" value="aa@kk.com"><br><br>
@@ -110,8 +110,8 @@
         <script>
             function submitform() {             
                 var userValues = {
-                    "fname": document.getElementById("fname").value,
-                    "lname": document.getElementById("lname").value,
+                    "first_name": document.getElementById("first_name").value,
+                    "last_name": document.getElementById("last_name").value,
                     "email": document.getElementById("email").value
                 };
 //                var userValues = {
