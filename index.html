@@ -163,7 +163,20 @@
     
         <!--     <script src='https://prabhuperiyasamy2-team.myfreshworks.com/crm/sales/web_forms/1a045178f6411de3bcf5581eb181fb89939e322443593aa55ab9da6c6ab5e110/form.js' crossorigin='anonymous' id='fs_1a045178f6411de3bcf5581eb181fb89939e322443593aa55ab9da6c6ab5e110'></script> -->
         <script>
-            function submitform() {             
+            var new_contact = 
+	        {
+	        'First name': 'John', //Replace with first name of the user
+	        'Last name': 'Doe',  //Replace with last name of the user
+	        'Email': 'john.doe@example.com', //Replace with email of the user
+	        'Alternate contact number': '98765432', //Replace with a custom field
+	        'company': {
+		        'Name': 'Example.com', //Replace with company name
+		        'Website': 'www.example.com' //Replace with website of company
+	        }
+        };
+        var identifier = 'john.doe@example.com';
+        fwcrm.identify(identifier, new_contact);
+//            function submitform() {             
 //                 var userValues = {
 //                     "firstname": document.getElementById("firstname").value,
 //                     "email": document.getElementById("email").value
@@ -184,7 +197,7 @@
 //         window.FMApi = window.FMApi || []; window.FMApi.push("fm_form_tracking", "D8EE6D4B3B14720D44A56D6C8868C1BD40740F88B0A9266156A9195C42F770717946FEE4924B2075E71F82382BA5E269041DAF2D2E2E4CABC3DA90E8B497E86D", userValues);
                 //FM stack-5 sniipet 
                 //window.FMApi = window.FMApi || []; window.FMApi.push("fm_form_tracking", "D8EE6D4B3B14720D44A56D6C8868C1BD5C0D9BEE23417713C4976FEC0DF5B2D279145402A5A12272A6F5B38B4C4B37821B10168EB2F691398923332A5C4348CD", userValues);
-            }
+//             }
         </script>
 
 </body>
