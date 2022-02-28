@@ -2,20 +2,29 @@ Test website
 <html>
 <head></head>
 <body>
-<form action="" id="form">
+<form action="" id="form1">
       <p><input type="first-name" placeholder="username"/></p>
       <p><input type="email" placeholder="=email" /></p>
       <p><input type="submit" value="submit" /></p>
 </form>
 
-<div id="box">
-     <span id="button">Login</span>
-    <form action="" id="form">
+<button onclick="myFunction()">Click Me</button>
+<form action="" id="form2">
       <p><input type="text" placeholder="username"/></p>
       <p><input type="password" placeholder="password" /></p>
       <p><input type="submit" value="Sign in" /></p>
-    </form>
-</div> 
+</form> 
+      
+<script>
+function myFunction() {
+  var x = document.getElementById("form2");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
 </body>
   
 </html>
