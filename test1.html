@@ -10,28 +10,16 @@
       <p><input type="submit" value="submit" /></p>
 </form>
 
-<!-- Popup Div Starts Here -->
-<div id="popupContact">
-<!-- Contact Us Form -->
-<form action="#" id="form" method="post" name="form">
-<img id="close" src="images/3.png" onclick ="div_hide()">
-<h2>Contact Us</h2>
-<hr>
-<input id="name" name="name" placeholder="Name" type="text">
-<input id="email" name="email" placeholder="Email" type="text">
-<textarea id="msg" name="message" placeholder="Message"></textarea>
-<a href="javascript:%20check_empty()" id="submit">Send</a>
+<button onclick="myFunction()">Click me</button>
+<form action="" id="form2">
+   <p><input type="text" placeholder="username"/></p>
+   <p><input type="password" placeholder="password" /></p>
+    <p><input type="submit" value="Sign in" /></p>
 </form>
-</div>
-<!-- Popup Div Ends Here -->
-</div>
-<!-- Display Popup Button -->
-<h1>Click Button To Popup Form Using Javascript</h1>
-<button id="popup" onclick="div_show()">Popup</button> 
       
 <script>
-function div_show() {
-document.getElementById('abc').style.display = "block";
+function myFunction() {
+document.getElementById('form2').style.display = "block";
 }
 </script>
       
