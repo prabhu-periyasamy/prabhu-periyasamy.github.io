@@ -4,6 +4,10 @@
 <head>Test website</head>
       
 <body>
+<!-- <a> element links to the section below -->
+<p><a href="#Section_further_down">
+  Jump to the heading below
+</a></p>
 <form action="" id="form1">
       <p><input type="text" name="first-name" placeholder="username"/></p>
       <p><input type="email" name="email" placeholder="email" /></p>
@@ -13,9 +17,12 @@
    <p><input type="text" name="first-name" placeholder="username"/></p>
    <p><input type="text" name="last-name" placeholder="lastname"/></p>
    <p><input type="email" name="email" placeholder="email" /></p>
-   <a href="#test">Test</a>
    <button onclick="myFunction()">Click me</button>
 </form>
+
+<!-- Heading to link to -->
+<h2 id="Section_further_down">Section further down</h2>
+
       
 <script>
 function myFunction() {
