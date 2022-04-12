@@ -8,6 +8,7 @@
 	</head>
 <body style="text-align: center;">
 <button onclick="generateForm()">Create form</button>
+<button onclick="removeForm()">Remove form</button>
 <script>
 function generateForm() {
 
@@ -21,7 +22,6 @@ function generateForm() {
   i.setAttribute('id', "email");
 
   var s = document.createElement("input");
-
   s.setAttribute('type', "submit");
   s.setAttribute('value', "submit");
   s.setAttribute('name', "submit");
@@ -31,6 +31,10 @@ function generateForm() {
 
   document.getElementsByTagName('body')[0].appendChild(f);
 
+}
+function removeForm(){
+    var f = document.getElementsByTagName('form')[0];
+    document.getElementsByTagName('body')[0].removeChild(f);
 }
 </script>
 
