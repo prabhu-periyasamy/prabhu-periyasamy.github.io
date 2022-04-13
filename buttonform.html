@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>
-			Create a Form Dynamically with
-			the JavaScript
-		</title>
-	</head>
+<head>
+<title>
+Create a Form Dynamically with the JavaScript
+</title>
+<script src='//fm-staging-us-app-cdnjs.s3.amazonaws.com/crm/500074406/82103.js' chat='false'></script>
+</head>
 <body style="text-align: center;">
 <button onclick="generateForm()">Create form</button>
 <button onclick="removeForm()">Remove form</button>
@@ -14,7 +14,6 @@ function generateForm() {
 
   var f = document.createElement("form");
   f.setAttribute('method', "post");
-  f.setAttribute('action', "action.php");
 
   var i = document.createElement("input"); //input element, text
   i.setAttribute('type', "email");
