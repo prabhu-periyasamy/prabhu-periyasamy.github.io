@@ -25,15 +25,15 @@ $("#sub-btn-edm").on("click", function () {
     $.ajax({
         type: 'POST',
         url: '/test.php',
-        data: formData,
+        data: '{
+        "data": "test"
+    }',
         dataType: 'json',
         encode: true,
-        success: function(o) {
-            $('.loader-screen').hide();
-            //    $("#sub-btn-edm").prop("disabled", false);
+        error: function(o) {
+            $("#sub-btn-edm").prop("disabled", false);
             $("#sub-btn-edm").html("submit");
             $("#sub-btn-edm").css("display", "none");
-
             document.getElementById("contactMainForm_edm").reset();
         }
     });
