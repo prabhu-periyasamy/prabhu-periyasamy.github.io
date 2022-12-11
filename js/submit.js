@@ -14,7 +14,7 @@ $("#sub-btn-edm").on("click", function () {
     var aa = document.getElementById("form-section"),
         form = document.getElementById("webinar-form")
     
-    $("#sub-btn-edm").prop("disabled", true);
+    //$("#sub-btn-edm").prop("disabled", true);
     
 //     aa.classList.toggle("toogle-success")
 //     setTimeout(() => {
@@ -31,7 +31,11 @@ $("#sub-btn-edm").on("click", function () {
         dataType: 'json',
         encode: true,
         success: function(o) {
-            $("#sub-btn-edm").prop("disabled", false);
+            //$("#sub-btn-edm").prop("disabled", false);
         }
     });
+});
+
+$("#sub-btn-edm").on("click", function () {
+    alert('clicked event on button');
 });
