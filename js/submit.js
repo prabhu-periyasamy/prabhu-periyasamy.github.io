@@ -25,9 +25,9 @@ $("#sub-btn-edm").on("click", function () {
     $.ajax({
         type: 'POST',
         url: '/test.php',
-        data: '{
+        data: {
         "data": "test"
-    }',
+    },
         dataType: 'json',
         encode: true,
         error: function(o) {
