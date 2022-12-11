@@ -29,7 +29,3 @@ $("#sub-btn-edm").on("click", function () {
         }
     });
 });
-
-$("#sub-btn-edm").on("click", function () {
-    alert('clicked event on button');
-});
