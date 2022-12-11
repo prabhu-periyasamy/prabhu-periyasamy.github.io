@@ -34,7 +34,6 @@ $("#sub-btn-edm").on("click", function () {
             $("#sub-btn-edm").prop("disabled", false);
             $("#sub-btn-edm").html("submit");
             $("#sub-btn-edm").css("display", "none");
-            document.getElementById("contactMainForm_edm").reset();
         }
     });
 });
