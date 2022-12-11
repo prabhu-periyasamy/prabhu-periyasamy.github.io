@@ -23,14 +23,14 @@ $("#sub-btn-edm").on("click", function () {
 //     }, 3000);
     
     $.ajax({
-        type: 'POST',
-        url: '/test.php',
+        type: 'GET',
+        url: 'http://localhost:8081/products',
         data: {
         "data": "test"
     },
         dataType: 'json',
         encode: true,
-        error: function(o) {
+        success: function(o) {
             $("#sub-btn-edm").prop("disabled", false);
             $("#sub-btn-edm").html("submit");
             $("#sub-btn-edm").css("display", "none");
