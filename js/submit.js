@@ -5,11 +5,11 @@ function submitForm() {
     $("#sub-btn-edm").prop("disabled", true);
     $("#sub-btn-edm").html("");
     
-    aa.classList.toggle("toogle-success")
-    setTimeout(() => {
-        aa.classList.toggle("toogle-success");
-        form.reset();
-    }, 3000);
+//     aa.classList.toggle("toogle-success")
+//     setTimeout(() => {
+//         aa.classList.toggle("toogle-success");
+//         form.reset();
+//     }, 3000);
     
     $("#sub-btn-edm").prop("disabled", false);
     $("#sub-btn-edm").html("");
