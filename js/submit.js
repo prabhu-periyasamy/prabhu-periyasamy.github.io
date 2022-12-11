@@ -32,8 +32,6 @@ $("#sub-btn-edm").on("click", function () {
         encode: true,
         success: function(o) {
             $("#sub-btn-edm").prop("disabled", false);
-            $("#sub-btn-edm").html("submit");
-            $("#sub-btn-edm").css("display", "none");
         }
     });
 });
