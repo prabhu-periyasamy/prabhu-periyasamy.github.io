@@ -10,22 +10,22 @@ function submitForm() {
 
 }
 
-$("#sub-btn-edm").on("click", function () {
-    var aa = document.getElementById("form-section"),
-        form = document.getElementById("webinar-form")
+// $("#sub-btn-edm").on("click", function () {
+//     var aa = document.getElementById("form-section"),
+//         form = document.getElementById("webinar-form")
     
-    $("#sub-btn-edm").prop("disabled", true);
+//     $("#sub-btn-edm").prop("disabled", true);
     
-    $.ajax({
-        type: 'GET',
-        url: 'http://localhost:8081/products',
-        data: {
-        "data": "test"
-    },
-        dataType: 'json',
-        encode: true,
-        success: function(o) {
-            $("#sub-btn-edm").prop("disabled", false);
-        }
-    });
-});
+//     $.ajax({
+//         type: 'GET',
+//         url: 'http://localhost:8081/products',
+//         data: {
+//         "data": "test"
+//     },
+//         dataType: 'json',
+//         encode: true,
+//         success: function(o) {
+//             $("#sub-btn-edm").prop("disabled", false);
+//         }
+//     });
+// });
