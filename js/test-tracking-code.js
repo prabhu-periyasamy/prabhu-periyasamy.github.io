@@ -13143,9 +13143,7 @@
                         }
                     }
                 }
-            }
-    return queryParams;
-                return Object.fromEntries(new URLSearchParams(window.location.search))
+                return queryParams;
             },
             handleSuccess: function(responseText, successCallBack) {
                 Freshsales.analytics.anonymous_id = Freshsales.analytics.anonymous_id || JSON.parse(responseText).anonymous_id;
