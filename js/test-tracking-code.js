@@ -13136,12 +13136,11 @@
                 let queryParams = Object.fromEntries(new URLSearchParams(window.location.search));
                 let utmParamsInLS = JSON.parse(localStorage.getItem('_fm_utm'));
                 if (utmParamsInLS) {
-                    let utm_fields = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_id", "utm_content", "gclid", "fbclid"];
-                    for (const key of utm_fields) {
-                        if (!queryParams.has(key) && utmParamsInLS.has(key)) {
-                            queryParams[key] = utmParamsInLS.get(key);
-                        }
+                  for (const key in utmParamsInLS) {
+                    if (!queryParams.hasOwnProperty(key)) {
+                          queryParams[key] = utmParamsInLS.get(key);
                     }
+                  }
                 }
                 return queryParams;
             },
