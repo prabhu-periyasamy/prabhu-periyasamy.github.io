@@ -12658,8 +12658,51 @@
                     }
                     Zarget.setStorage("_fm_rs", latestSrcParams.source);
                     Zarget.setStorage("_fm_rm", latestSrcParams.medium);
-                    Zarget.setStorage("_fm_rc", latestSrcParams.campaign)
+                    Zarget.setStorage("_fm_rc", latestSrcParams.campaign);
+                    updateUtmParamsInLocalStorage();
+        }
+
+        function updateUtmParamsInLocalStorage() {
+            let curDomain = getDomain(window.location.href);
+            let referrer = document.referrer;
+            let refDomain = referrer ? getDomain(document.referrer) : '';
+            if (curDomain === refDomain && !checkIfUTMParamsPresent()) {
+                return;
+            }
+            let utmParams = getUTMParams();
+            localStorage.setItem('_fm_utm', JSON.stringify(utmParams));
+        }
+
+        function getDomain(href) {
+            let url = new URL(href);
+            let domain = url.hostname.toLowerCase();
+            if (domain.startsWith("www")) {
+                domain = domain.substring(4)
+            }
+            return domain;
+        }
+
+        let utm_fields = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_id", "utm_content", "gclid", "fbclid"];
+        function checkIfUTMParamsPresent() {
+            let urlParams = new URLSearchParams(window.location.search);
+            for (const key of urlParams.keys()) {
+                if (utm_fields.includes(key)) {
+                    return true;
                 }
+            }
+            return false;
+        }
+
+        function getUTMParams() {
+            let urlParams = new URLSearchParams(window.location.search);
+            const utmParams = {};
+            urlParams.forEach((value, key) => {
+                if (utm_fields.includes(key)) {
+                    utmParams[key] = value;
+                }
+            });
+            return utmParams;
+        }
             } catch (err) {
                 console.error("error in loading the script", err)
             }
@@ -13090,6 +13133,18 @@
                 return ga_client_id
             },
             getQueryParams: function() {
+                let queryParams = Object.fromEntries(new URLSearchParams(window.location.search));
+                let utmParamsInLS = JSON.parse(localStorage.getItem('_fm_utm'));
+                if (utmParamsInLS) {
+                    let utm_fields = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_id", "utm_content", "gclid", "fbclid"];
+                    for (const key of utm_fields) {
+                        if (!queryParams.has(key) && utmParamsInLS.has(key)) {
+                            queryParams[key] = utmParamsInLS.get(key);
+                        }
+                    }
+                }
+            }
+    return queryParams;
                 return Object.fromEntries(new URLSearchParams(window.location.search))
             },
             handleSuccess: function(responseText, successCallBack) {
