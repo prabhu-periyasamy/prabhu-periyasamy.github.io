@@ -12662,6 +12662,7 @@
                     updateUtmParamsInLocalStorage();
         }
 
+        let utm_fields = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_id", "utm_content", "gclid", "fbclid"];
         function updateUtmParamsInLocalStorage() {
             let curDomain = getDomain(window.location.href);
             let referrer = document.referrer;
@@ -12682,7 +12683,6 @@
             return domain;
         }
 
-        let utm_fields = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_id", "utm_content", "gclid", "fbclid"];
         function checkIfUTMParamsPresent() {
             let urlParams = new URLSearchParams(window.location.search);
             for (const key of urlParams.keys()) {
