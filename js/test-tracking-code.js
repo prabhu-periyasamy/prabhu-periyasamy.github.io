@@ -12664,12 +12664,6 @@
         }
 
         function updateUtmParamsInLocalStorage() {
-            let curDomain = getDomain(window.location.href);
-            let referrer = document.referrer;
-            let refDomain = referrer ? getDomain(document.referrer) : '';
-            if (curDomain === refDomain && !checkIfUTMParamsPresent()) {
-                return;
-            }
             let utmParams = getUTMParams();
             localStorage.setItem('_fm_utm', JSON.stringify(utmParams));
         }
