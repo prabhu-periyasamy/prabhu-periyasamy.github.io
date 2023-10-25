@@ -12671,7 +12671,7 @@
                 return;
             }
             let utmParams = getUTMParams();
-            zarget.setStorage('_fm_utm', JSON.stringify(utmParams));
+            Zarget.setStorage('_fm_utm', JSON.stringify(utmParams));
         }
                 
         function getDomain(href) {
