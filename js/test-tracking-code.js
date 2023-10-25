@@ -12724,7 +12724,7 @@
                 createFcn(nm)
             }
             freshsales.salesData.init("https://prabhu-staging-test.myfreshworks.dev/crm/sales", "60c644238272e7c03b29b379a8d6bfc122211f9be0fe62230efbc2bfffd535ef", true, 7977305, "https://fm-staging-us-app-cdnjs.s3.amazonaws.com/crm", {
-                enabled: false
+                enabled: true
             })
         }
     })();
