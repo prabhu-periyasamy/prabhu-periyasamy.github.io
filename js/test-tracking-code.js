@@ -12664,10 +12664,16 @@
         }
 
         function updateUtmParamsInLocalStorage() {
+            let curDomain = getDomain(window.location.href);
+            let referrer = document.referrer;
+            let refDomain = referrer ? getDomain(document.referrer) : '';
+            if (curDomain === refDomain && !checkIfUTMParamsPresent()) {
+                return;
+            }
             let utmParams = getUTMParams();
-            localStorage.setItem('_fm_utm', JSON.stringify(utmParams));
+            zarget.setStorage('_fm_utm', JSON.stringify(utmParams));
         }
-
+                
         function getDomain(href) {
             let url = new URL(href);
             let domain = url.hostname.toLowerCase();
@@ -12697,6 +12703,7 @@
             });
             return utmParams;
         }
+
             } catch (err) {
                 console.error("error in loading the script", err)
             }
@@ -13127,17 +13134,22 @@
                 return ga_client_id
             },
             getQueryParams: function() {
-                let queryParams = Object.fromEntries(new URLSearchParams(window.location.search));
-                let utmParamsInLS = JSON.parse(localStorage.getItem('_fm_utm'));
-                if (utmParamsInLS) {
-                  for (const key in utmParamsInLS) {
-                    if (!queryParams.hasOwnProperty(key)) {
-                          queryParams[key] = utmParamsInLS.get(key);
-                    }
-                  }
-                }
-                return queryParams;
-            },
+            let queryParams = Object.fromEntries(new URLSearchParams(window.location.search));
+            let fmUtm = localStorage.getItem('_fm_utm');
+            if (!fmUtm) {
+              return queryParams;
+            }
+            let utmParamsInLS = JSON.parse(fmUtm);
+            if (!utmParamsInLS) {
+              return queryParams;
+            }
+            for (const key in utmParamsInLS) {
+              if (!queryParams.hasOwnProperty(key)) {
+                queryParams[key] = utmParamsInLS.get(key);
+              }
+            }
+            return queryParams;
+          },
             handleSuccess: function(responseText, successCallBack) {
                 Freshsales.analytics.anonymous_id = Freshsales.analytics.anonymous_id || JSON.parse(responseText).anonymous_id;
                 if (successCallBack) {
