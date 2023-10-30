@@ -7015,7 +7015,9 @@
                 excludeIps: [],
                 projectJS: "",
                 jquery: 1,
-                anonymize_ip: 0
+                anonymize_ip: 0,
+                src_tracking_enabled: 1,
+                auto_map_query_params: 1
             },
             polls: {},
             "domain-url": "prabhu-staging-test.pre-freshmarketer.io",
