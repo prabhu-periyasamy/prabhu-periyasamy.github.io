@@ -13114,7 +13114,7 @@
                 }
             },
             setSrcTrackingParams: function(data) {
-                let projProps = window.zg_getProjectProps();
+                let projProps = window.zg_projectProps();
                   if (projProps) {
                     if (projProps.src_tracking_enabled === 1) {
                       data.st = {
