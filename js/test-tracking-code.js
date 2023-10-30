@@ -5855,6 +5855,7 @@
             window.zargetCookie.removeCookie = zarget.removeCookie;
             window.zg_selector = zarget.selector;
             window.integrations = zarget.getIntegrations;
+            window.zarget.projectProps = zarget.getProjectProps;
             return zarget
         })();
         (function(Zarget) {
@@ -12442,10 +12443,11 @@
         (function(Zarget, ZargetData) {
             try {
                 let parsedUrl = Zarget.parseURL(window.location.href);
+                let projProps = Zarget.getProjectProps();
                 let utm_fields = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_id", "utm_content", "gclid", "fbclid"];
                 if (containsFmTrackingParams()) {
                     fmSourceTracking()
-                } else {
+                } else if (projProps && projProps.src_tracking_enabled === 1) {
                     visitorSourceTracking()
                 }
 
@@ -13110,17 +13112,32 @@
                 }
             },
             setSrcTrackingParams: function(data) {
-                data.st = {
-                    os: localStorage.getItem("_fm_os"),
-                    om: localStorage.getItem("_fm_om"),
-                    oc: localStorage.getItem("_fm_oc"),
-                    rs: localStorage.getItem("_fm_rs"),
-                    rm: localStorage.getItem("_fm_rm"),
-                    rc: localStorage.getItem("_fm_rc"),
-                    _ga: this.getGAClientId(),
-                    q: this.getQueryParams()
+                if (window.Zarget) {
+                  let projProps = Zarget.getProjectProps();
+                  if (projProps) {
+                    if (projProps.src_tracking_enabled === 1) {
+                      data.st = {
+                        "os": localStorage.getItem("_fm_os"),
+                        "om": localStorage.getItem("_fm_om"),
+                        "oc": localStorage.getItem("_fm_oc"),
+                        "rs": localStorage.getItem("_fm_rs"),
+                        "rm": localStorage.getItem("_fm_rm"),
+                        "rc": localStorage.getItem("_fm_rc")
+                    };
+                    }
+                    if (projProps.auto_map_query_params === 1) {
+                      this.setUtmQueryParams(data);
+                    }
+                  }
                 }
             },
+            setUtmQueryParams(data) {
+                if (!data.st) {
+                  data.st = {};
+                }
+                data.st["_ga"] = this.getGAClientId();
+                data.st["q"] = this.getQueryParams();
+              },
             getGAClientId: function() {
                 let ga_client_id = "";
                 let full_ga_client_id = zargetCookie.getCookies()["_ga"];
