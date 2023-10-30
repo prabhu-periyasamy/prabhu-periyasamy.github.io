@@ -5855,7 +5855,7 @@
             window.zargetCookie.removeCookie = zarget.removeCookie;
             window.zg_selector = zarget.selector;
             window.integrations = zarget.getIntegrations;
-            window.zarget.projectProps = zarget.getProjectProps;
+            window.zg_projectProps = zarget.getProjectProps;
             return zarget
         })();
         (function(Zarget) {
@@ -13112,8 +13112,7 @@
                 }
             },
             setSrcTrackingParams: function(data) {
-                if (window.Zarget) {
-                  let projProps = Zarget.getProjectProps();
+                let projProps = window.zg_getProjectProps();
                   if (projProps) {
                     if (projProps.src_tracking_enabled === 1) {
                       data.st = {
@@ -13129,7 +13128,6 @@
                       this.setUtmQueryParams(data);
                     }
                   }
-                }
             },
             setUtmQueryParams(data) {
                 if (!data.st) {
